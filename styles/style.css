@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+    height: 100vh;
+    font-size: 3em;
+    font-family: consolas;
+}
+.base{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    width: 600px;
+    height: 1000px;
+}
+.pantalla{
+    grid-column: span 4;
+    background-color: greenyellow;
+    border: 10px solid green;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding: 80px;
+}
+.boton, .clear{
+    color: black;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 10px solid gray;
+    cursor: pointer;
+}
+.cero{
+    grid-column: span 3;
+}
+.b-igual{
+    grid-row: span 2;
+}
