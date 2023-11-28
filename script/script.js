@@ -31,7 +31,7 @@ for (let i = 0; i < botonesNumeros.length; i++) {
         if (final == false) {
             if (pantallaText == '0') {
                 pantallaText = botonesNumeros[i].textContent;
-            }else{
+            } else {
                 pantallaText += botonesNumeros[i].textContent;
             }
             pantalla.innerHTML = pantallaText;
@@ -50,29 +50,31 @@ const limpiar = () => {
     final = false;
 }
 const calculo = () => {
-    numero2 += parseInt(pantallaText);
-    pantallaText = '';
-    switch (operadorUsado) {
-        case '+':
-            pantallaText = (numero1 + numero2);
-            break;
-        case '-':
-            pantallaText = (numero1 - numero2);
-            break;
-        case 'x':
-            pantallaText = (numero1 * numero2);
-            break;
-        case '/':
-            if (numero2 == 0) {
-                pantallaText = 'Error';
-            } else{
-                pantallaText = (numero1 / numero2);
-            }
-            break;
-        case '^':
-            pantallaText = (Math.pow(numero1, numero2));
-            break;
+    if (numEstablecido == true && final == false) {
+        numero2 += parseInt(pantallaText);
+        pantallaText = '';
+        switch (operadorUsado) {
+            case '+':
+                pantallaText = (numero1 + numero2);
+                break;
+            case '-':
+                pantallaText = (numero1 - numero2);
+                break;
+            case 'x':
+                pantallaText = (numero1 * numero2);
+                break;
+            case '/':
+                if (numero2 == 0) {
+                    pantallaText = 'Error';
+                } else {
+                    pantallaText = (numero1 / numero2);
+                }
+                break;
+            case '^':
+                pantallaText = (Math.pow(numero1, numero2));
+                break;
+        }
+        pantalla.innerHTML = pantallaText;
+        final = true;
     }
-    pantalla.innerHTML = pantallaText;
-    final = true;
 }

@@ -1,38 +1,61 @@
-body{
+@font-face {
+    font-family: calculadora;
+    src: url('../resources/fonts/Calculator.ttf');
+}
+
+body {
     margin: 0;
     height: 100vh;
     font-size: 3em;
-    font-family: consolas;
-}
-.base{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    width: 600px;
-    height: 1000px;
-}
-.pantalla{
-    grid-column: span 4;
-    background-color: greenyellow;
-    border: 10px solid green;
-    padding: 1%;
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;
-    padding: 80px;
-}
-.boton, .clear{
-    color: black;
-    background-color: lightgray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 10px solid gray;
-    cursor: pointer;
-}
-.cero{
-    grid-column: span 3;
-}
-.b-igual{
-    grid-row: span 2;
+    font-family: calculadora;
+    font-weight: bold;
+
+    & .base {
+        margin: 20px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto 1fr;
+        width: 600px;
+        height: 1000px;
+
+        & .pantalla {
+            grid-column: span 4;
+            background-color: greenyellow;
+            border: 10px solid green;
+            padding: 1%;
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-right: 30px;
+        }
+
+        & .botones {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            background-color: gray;
+            gap: 10px;
+            padding: 10px;
+
+            & .cero {
+                grid-column: span 3;
+            }
+
+            & .b-igual {
+                grid-row: span 2;
+            }
+
+            & .boton {
+                background-image: url('../resources/img/button.png');
+                color: black;
+                background-color: lightgray;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+            }
+        }
+    }
 }
