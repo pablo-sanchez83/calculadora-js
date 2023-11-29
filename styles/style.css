@@ -15,8 +15,8 @@ body {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: auto 1fr;
-        width: 600px;
-        height: 1000px;
+        width: 30%;
+        height: 80%;
 
         & .pantalla {
             grid-column: span 4;
