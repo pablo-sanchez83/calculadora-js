@@ -29,6 +29,7 @@ body {
             padding-top: 30px;
             padding-bottom: 30px;
             padding-right: 30px;
+            overflow: auto;
         }
 
         & .botones {
@@ -38,6 +39,7 @@ body {
             background-color: gray;
             gap: 10px;
             padding: 10px;
+            user-select: none;
 
             & .cero {
                 grid-column: span 3;
@@ -55,6 +57,9 @@ body {
                 justify-content: center;
                 align-items: center;
                 cursor: pointer;
+                &:active{
+                    scale: .8;
+                }
             }
         }
     }

@@ -13,7 +13,7 @@ let final = false;
 //Funcion botones
 for (let i = 0; i < botonesFuncion.length; i++) {
     botonesFuncion[i].addEventListener("click", function () {
-        if (numEstablecido == true) {
+        if (numEstablecido) {
             numero1 = parseInt(pantallaText);
             operadorUsado = botonesFuncion[i].textContent;
 
@@ -25,10 +25,11 @@ for (let i = 0; i < botonesFuncion.length; i++) {
         }
     })
 }
+
 //Funcion numeros
 for (let i = 0; i < botonesNumeros.length; i++) {
     botonesNumeros[i].addEventListener("click", function () {
-        if (pantallaText == '0' || final == true) {
+        if (isCero() || final) {
             pantallaText = botonesNumeros[i].textContent;
             final = false;
         } else {
@@ -39,6 +40,7 @@ for (let i = 0; i < botonesNumeros.length; i++) {
 
     })
 }
+
 //Funcion Clear
 const limpiar = () => {
     numero1 = 0;
@@ -49,8 +51,9 @@ const limpiar = () => {
     numEstablecido = false;
     final = false;
 }
+
 const calculo = () => {
-    if (numEstablecido == true && final == false) {
+    if (numEstablecido && !final) {
         numero2 = parseInt(pantallaText);
         pantallaText = '';
         switch (operadorUsado) {
@@ -64,11 +67,10 @@ const calculo = () => {
                 pantallaText = (numero1 * numero2);
                 break;
             case '/':
-                if (numero2 == 0) {
+                if (numero2 == 0) 
                     pantallaText = 'Error';
-                } else {
+                 else 
                     pantallaText = (numero1 / numero2);
-                }
                 break;
             case '^':
                 pantallaText = (Math.pow(numero1, numero2));
@@ -77,4 +79,11 @@ const calculo = () => {
         pantalla.innerHTML = pantallaText;
         final = true;
     }
+}
+
+const isCero = () => {
+    if (pantallaText == '0') 
+        return true;
+    else 
+        return false;   
 }
