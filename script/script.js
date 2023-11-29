@@ -13,7 +13,7 @@ let final = false;
 //Funcion botones
 for (let i = 0; i < botonesFuncion.length; i++) {
     botonesFuncion[i].addEventListener("click", function () {
-        if (numEstablecido == true && final == false) {
+        if (numEstablecido == true) {
             numero1 = parseInt(pantallaText);
             operadorUsado = botonesFuncion[i].textContent;
 
