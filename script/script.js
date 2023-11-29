@@ -14,7 +14,7 @@ let final = false;
 for (let i = 0; i < botonesFuncion.length; i++) {
     botonesFuncion[i].addEventListener("click", function () {
         if (numEstablecido == true && final == false) {
-            numero1 += parseInt(pantallaText);
+            numero1 = parseInt(pantallaText);
             operadorUsado = botonesFuncion[i].textContent;
 
             pantallaText = '';
@@ -28,15 +28,15 @@ for (let i = 0; i < botonesFuncion.length; i++) {
 //Funcion numeros
 for (let i = 0; i < botonesNumeros.length; i++) {
     botonesNumeros[i].addEventListener("click", function () {
-        if (final == false) {
-            if (pantallaText == '0') {
-                pantallaText = botonesNumeros[i].textContent;
-            } else {
-                pantallaText += botonesNumeros[i].textContent;
-            }
-            pantalla.innerHTML = pantallaText;
-            numEstablecido = true;
+        if (pantallaText == '0' || final == true) {
+            pantallaText = botonesNumeros[i].textContent;
+            final = false;
+        } else {
+            pantallaText += botonesNumeros[i].textContent;
         }
+        pantalla.innerHTML = pantallaText;
+        numEstablecido = true;
+
     })
 }
 //Funcion Clear
@@ -51,7 +51,7 @@ const limpiar = () => {
 }
 const calculo = () => {
     if (numEstablecido == true && final == false) {
-        numero2 += parseInt(pantallaText);
+        numero2 = parseInt(pantallaText);
         pantallaText = '';
         switch (operadorUsado) {
             case '+':
